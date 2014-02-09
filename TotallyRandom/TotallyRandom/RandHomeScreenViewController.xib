@@ -17,7 +17,6 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="black" translucent="NO" id="w4U-89-bTg">

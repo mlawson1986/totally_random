@@ -11,4 +11,9 @@
 
 @protocol RandViewController
 -(NSInteger) generateRandomNumber;
+-(NSString *) getTitle;
+@end
+
+@interface RandViewController : NSObject
+
 @end

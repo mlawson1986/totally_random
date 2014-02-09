@@ -10,34 +10,28 @@
 #import "PlistUtils.h"
 
 @implementation PlistUtils
-NSPropertyListFormat format;
-NSString *errorDescription;
-NSString *localPath;
+
+
 /*
  plistName is the name of the list we're going to return. It's a required string
  path is the local directory path to get to the file. It's optional and can be passed NULL or nil
  
  */
 + (NSArray *) getPlistForName:(NSString *)plistFileName atLocalPath:(NSString *)path {
-   
-    [self cleanFileName:plistFileName];
+    
+    NSString *localPath;
+    NSArray *plist = nil;
     if(path == nil || path == NULL){
         localPath = @"./";
     }
     else{
         localPath = path;
     }
-    return NULL;
-}
-//add .plist to the filename if it's not alreaqdy there
-+(void) cleanFileName:(NSString *)fileName {
-    if(![fileName hasSuffix:@".plist"]){
-        //we'll have to create a new string, so deallocate the old, bring in the new!
-        fileName = [fileName stringByAppendingString:@".plist"];
-        NSLog(@"Converted: %@",fileName);
+    NSString *truePath = [[NSBundle mainBundle] pathForResource:path ofType:@"plist"];
+    plist = [NSArray arrayWithContentsOfFile:truePath];
+    if(plist == nil){
+        NSLog(@"Unable to load plist");
     }
-    else{
-        NSLog(@"No need to convert");
-    }
+    return plist;
 }
 @end

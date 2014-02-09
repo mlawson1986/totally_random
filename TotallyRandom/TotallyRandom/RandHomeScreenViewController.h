@@ -10,6 +10,7 @@
 
 @interface RandHomeScreenViewController : UITableViewController
 - (void) returnHome;
+- (BOOL) loadGeneratorsFromPlist: (NSArray *) genList;
 @end
 
 

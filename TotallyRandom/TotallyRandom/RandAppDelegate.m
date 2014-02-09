@@ -8,7 +8,7 @@
 
 #import "RandAppDelegate.h"
 #import "RandHomeScreenViewController.h"
-
+#import "PlistUtils.h"
 @implementation RandAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -21,7 +21,16 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [self.window setRootViewController:[[RandHomeScreenViewController alloc] initWithNibName:@"RandHomeScreenViewController" bundle:nil]];
+    //load up all the generators to feed into the table.
+    RandHomeScreenViewController *homeScreen = [[RandHomeScreenViewController alloc] initWithNibName:@"RandHomeScreenViewController" bundle:nil];
+    BOOL loadSuccess = [homeScreen loadGeneratorsFromPlist:[PlistUtils getPlistForName:@"Generators"
+                                                                           atLocalPath:nil]];
+    if(!loadSuccess){
+        NSLog(@"There was an error loading the generator list");
+        return NO;
+    }
+    
+    [self.window setRootViewController:homeScreen];//we're done setting up the controller and view, so let's roll
     return YES;
 }
 

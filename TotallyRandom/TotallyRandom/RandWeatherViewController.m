@@ -38,4 +38,8 @@
 - (NSInteger) generateRandomNumber{
     return 0;
 }
+
+- (NSString *) getTitle{
+    return self.navigationItem.title;
+}
 @end

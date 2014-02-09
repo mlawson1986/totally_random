@@ -8,10 +8,8 @@
 
 #import "RandHomeScreenViewController.h"
 #import "RandAboutViewController.h"
-#import "RandWeatherViewController.h"
 #import "RandViewController.h"
 @interface RandHomeScreenViewController () <RandAboutViewControllerDelegate>
-@property (nonatomic) NSString *randomGeneratorName;
 @property (nonatomic) int numGenerators;
 @property (nonatomic) NSArray *generatorList;//array of NSDictionary objects that define our generator listing
 @end
@@ -22,18 +20,19 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        //first, gotta load up that plist
-        
         
     }
     return self;
 }
-
+-(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    self.numGenerators = [self.generatorList count];//dynamically determine this number based on number of generators registered
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +48,19 @@
     [self presentViewController:about animated:YES completion:NULL];
 }
 
+//create an array of RandViewController objects based on the passed in array of dictionaries.
+- (BOOL) loadGeneratorsFromPlist:(NSArray *)genList{
+    
+    
+    //loop through the array
+    self.numGenerators = [genList count];
+    if(self.numGenerators == 0){
+        NSLog(@"No generators found");
+        return NO;
+    }
+    self.generatorList = genList;
+    return YES;
+}
 - (void)returnHome{
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -57,31 +69,41 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    self.numGenerators = 1;
-    return self.numGenerators;
+    return 1;//it's all one section for the time being.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return self.numGenerators;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"RNGenerator";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    NSDictionary *genEntry = (NSDictionary *) [self.generatorList objectAtIndex:indexPath.row];
+    //for each cell, use the label as the label, and the class name as the value represented by the cell when tapped
+    //if possible, try to go ahead and create the controller object, if not just use a string to load the controller from nib file.
     
-    // Configure the cell...
-   
+    //check to ensure the referenced generator conforms to the RandViewController protocol before loading it
+    if([self doesControllerConformToGeneratorProtocol:genEntry[@"controller"]]){
+        cell.textLabel.text = genEntry[@"label"];
+    }
+    else{
+        self.numGenerators--;
+    }
     return cell;
 }
 
 
-
+-(BOOL) doesControllerConformToGeneratorProtocol: (NSString *)controllerName{
+    
+    return NO;
+}
 
 
 #pragma mark - Table view delegate
@@ -91,12 +113,14 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-//View loaded based on index of what was tapped
-    id<RandViewController> generator = [[RandWeatherViewController alloc] init];
+    //View loaded based on index of what was tapped
+    //------------
+    
+    //-------------
     // Pass the selected object to the new view controller.
-   
+    
     // Push the view controller.
-  //  [self.navigationController pushViewController:detailViewController animated:YES];
+    //  [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 
