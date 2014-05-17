@@ -10,7 +10,7 @@
 #import "RandAboutViewController.h"
 #import "RandViewController.h"
 @interface RandHomeScreenViewController () <RandAboutViewControllerDelegate>
-@property (nonatomic) int numGenerators;
+@property (nonatomic) NSUInteger numGenerators;
 @property (nonatomic) NSArray *generatorList;//array of NSDictionary objects that define our generator listing
 @end
 
@@ -102,7 +102,13 @@
 
 -(BOOL) doesControllerConformToGeneratorProtocol: (NSString *)controllerName{
     
-    return NO;
+    id cont = [[NSClassFromString(controllerName) alloc] init];
+    BOOL doesIt = NO;
+    if([cont conformsToProtocol:@protocol(RandViewController)]){
+        doesIt = YES;
+    }
+    
+    return doesIt;
 }
 
 
@@ -116,6 +122,17 @@
     //View loaded based on index of what was tapped
     //------------
     
+    NSDictionary *genEntry = (NSDictionary *) [self.generatorList objectAtIndex:indexPath.row];
+    
+    UIViewController<RandViewController> *randomViewController = [[NSClassFromString(genEntry[@"controller"]) alloc] initWithNibName:genEntry[@"controller"] bundle:nil];
+    
+    
+    
+   
+    [self presentViewController:randomViewController animated:YES completion:nil];
+    NSLog(@"%@",randomViewController);
+    NSLog(@"%@",[randomViewController getTitle]);
+    NSLog(@"Now entering %@",(NSString *) genEntry[@"controller"]);
     //-------------
     // Pass the selected object to the new view controller.
     

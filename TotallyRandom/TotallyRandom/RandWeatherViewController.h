@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RandWeatherViewController.h"
+
 @interface RandWeatherViewController : UIViewController
 
 @end

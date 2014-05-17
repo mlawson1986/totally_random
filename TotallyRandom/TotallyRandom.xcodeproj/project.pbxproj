@@ -31,6 +31,8 @@
 		337D1C38184EDC5100356777 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 337D1C36184EDC5100356777 /* InfoPlist.strings */; };
 		337D1C3A184EDC5100356777 /* TotallyRandomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 337D1C39184EDC5100356777 /* TotallyRandomTests.m */; };
 		337D1C43184EE0C400356777 /* TotallyRandom-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 337D1C18184EDC5100356777 /* TotallyRandom-Info.plist */; };
+		78C96E2D190AE19D00F8964A /* RandSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C96E2B190AE19D00F8964A /* RandSystemViewController.m */; };
+		78C96E2E190AE19D00F8964A /* RandSystemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C96E2C190AE19D00F8964A /* RandSystemViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		337D1C37184EDC5100356777 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		337D1C39184EDC5100356777 /* TotallyRandomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotallyRandomTests.m; sourceTree = "<group>"; };
 		33D34B711869289700EF5627 /* RandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandViewController.h; sourceTree = "<group>"; };
+		78C96E2A190AE19D00F8964A /* RandSystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandSystemViewController.h; sourceTree = "<group>"; };
+		78C96E2B190AE19D00F8964A /* RandSystemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandSystemViewController.m; sourceTree = "<group>"; };
+		78C96E2C190AE19D00F8964A /* RandSystemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RandSystemViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +115,9 @@
 				330B7EE41869367000AEF099 /* RandWeatherViewController.h */,
 				330B7EE51869367000AEF099 /* RandWeatherViewController.m */,
 				330B7EE61869367000AEF099 /* RandWeatherViewController.xib */,
+				78C96E2A190AE19D00F8964A /* RandSystemViewController.h */,
+				78C96E2B190AE19D00F8964A /* RandSystemViewController.m */,
+				78C96E2C190AE19D00F8964A /* RandSystemViewController.xib */,
 			);
 			name = NumberGenerators;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 				337D1C1B184EDC5100356777 /* InfoPlist.strings in Resources */,
 				337D1C26184EDC5100356777 /* Images.xcassets in Resources */,
 				330B7EE81869367000AEF099 /* RandWeatherViewController.xib in Resources */,
+				78C96E2E190AE19D00F8964A /* RandSystemViewController.xib in Resources */,
 				330AA8FF1850248600772A6A /* RandAboutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +312,7 @@
 				337D1C24184EDC5100356777 /* TotallyRandom.xcdatamodeld in Sources */,
 				332E0409186B7133001A798B /* PlistUtils.m in Sources */,
 				337D1C21184EDC5100356777 /* RandAppDelegate.m in Sources */,
+				78C96E2D190AE19D00F8964A /* RandSystemViewController.m in Sources */,
 				330B7EE2186934B600AEF099 /* RandHomeScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

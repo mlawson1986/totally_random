@@ -3,6 +3,12 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>label</key>
+		<string>System</string>
+		<key>controller</key>
+		<string>RandSystemViewController</string>
+	</dict>
+	<dict>
 		<key>controller</key>
 		<string>RandWeatherViewController</string>
 		<key>label</key>

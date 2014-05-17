@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 
-@protocol RandViewController
+@protocol RandViewController <NSObject>
+
 -(NSInteger) generateRandomNumber;
 -(NSString *) getTitle;
+-(IBAction) returnToHome:(id)sender;
 @end
 
-@interface RandViewController : NSObject
+@interface RandViewController : UIViewController
 
 @end

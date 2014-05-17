@@ -1,19 +1,19 @@
 //
-//  RandWeatherViewController.m
+//  RandSystemViewController.m
 //  TotallyRandom
 //
-//  Created by Development on 12/23/13.
-//  Copyright (c) 2013 com.funnel. All rights reserved.
+//  Created by Michael Lawson on 4/25/14.
+//  Copyright (c) 2014 com.funnel. All rights reserved.
 //
 
-#import "RandWeatherViewController.h"
+#import "RandSystemViewController.h"
 #import "RandViewController.h"
 
-@interface RandWeatherViewController () <RandViewController>
+@interface RandSystemViewController () <RandViewController>
 
 @end
 
-@implementation RandWeatherViewController
+@implementation RandSystemViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,16 +36,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger) generateRandomNumber{
-    return 0;
+-(NSInteger) generateRandomNumber{
+    return rand();
 }
-
-- (NSString *) getTitle{
-    return self.title;
+- (IBAction)displayNumber:(UIButton *)sender {
+    
 }
 - (IBAction)returnToHome:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+-(NSString *) getTitle{
+    return self.title;
+}
 @end
